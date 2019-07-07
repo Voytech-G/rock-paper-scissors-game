@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gra smok, strzyga, utopiec</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Open Sans", arial;
+      height: 100vh;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+    }
+
+    div.images {
+      overflow: hidden;
+      text-align: center;
+      margin: 0 auto;
+    }
+
+    div img {
+      display: inline-block;
+      width: 250px;
+      height: 200px;
+      margin: 20px;
+      cursor: pointer;
+    }
+
+    div img:hover {
+      box-shadow: 0 0 3px 5px rgb(185, 22, 22);
+    }
+
+    button {
+      text-align: center;
+      margin: 20px auto;
+      display: block;
+      cursor: pointer;
+      padding: 20px 30px;
+      text-transform: uppercase;
+      background-color: white;
+      border: 5px solid black;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    button:hover {
+      background-color: black;
+      border: 5px solid white;
+      color: white;
+    }
+
+    .result,
+    .counter {
+      display: inline-block;
+      width: 48%;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    button.trap {
+      font-size: 15px;
+      border: none;
+      background-color: black;
+      color: black;
+    }
+
+    .trapper {
+      height: 100px;
+      background-color: black;
+      display: none;
+    }
+
+    .trapper.display {
+      display: block;
+    }
+
+    .trap:hover {
+      color: black;
+      background-color: white;
+    }
+
+    .karta {
+      position: absolute;
+      background-color: cadetblue;
+      top: 98%;
+      left: 95%;
+      width: 5vw;
+      height: 5vh;
+      font-size: 10px;
+      color: red;
+      font-weight: bold;
+      animation: kartka 5s linear forwards;
+    }
+
+    @keyframes kartka {
+      0% {
+        width: 0;
+        height: 0;
+        transform: rotate(0deg);
+      }
+
+      30% {
+        width: 100px;
+        height: 100px;
+        top: 30%;
+        left: 30%;
+      }
+
+      45% {
+        width: 150px;
+        height: 150px;
+        top: 40%;
+        left: 50%;
+      }
+
+      60% {
+        top: 30%;
+        left: 60%;
+        width: 200px;
+        height: 200px;
+      }
+
+      100% {
+        font-size: 50px;
+        width: 450px;
+        height: 450px;
+        top: calc(50% - 250px);
+        left: calc(50% - 100px);
+        transform: rotate(1800deg);
+        background-image: url("karta.jpg");
+        background-size: cover;
+      }
+    }
+
+    .wroc {
+      left: 75%;
+      top: 80%;
+      position: absolute;
+      height: 0;
+      width: 0;
+      animation: przycisk 5s linear forwards;
+      text-align: center;
+      margin: 20px auto;
+      display: block;
+      cursor: pointer;
+      padding: 0;
+      text-transform: uppercase;
+      background-color: grey;
+      border: 2px solid black;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    wroc:hover {
+      background-color: black;
+      border: none;
+      color: white;
+    }
+
+    @keyframes przycisk {
+      0% {
+        display: none;
+        height: 0;
+        width: 0;
+      }
+
+      90% {
+        display: none;
+        height: 0;
+        width: 0;
+      }
+
+      100% {
+        display: block;
+        height: 50px;
+        width: 100px;
+
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Gra smok, strzyga, utopiec</h1>
+  <h2>Wybierz potwora: </h2>
+  <div class="images">
+    <img src="smaug.jpg" data-monster="smaug" alt="">
+    <img src="strzyga.jpg" data-monster="strzyga" alt="">
+    <img src="utopiec.png" data-monster="utopiec" alt="">
+  </div>
+  <button class="graj">Zagraj!</button>
+  <div class="result">
+    <p>Twój wybór: <span data-summary="yourChoice"></span></p>
+    <p>Wybór komputera: <span data-summary="aiChoice"></span></p>
+    <p>Wynik: <span data-summary="result"></span></p>
+  </div>
+  <div class="counter">
+    <p>Która gra: <span class="numbers"data-result="numbers">0</span></p>
+    <p>Wygrane: <span class="wins" data-result="wins">0</span></p>
+    <p>Przegrane: <span class="losses" data-result="losses">0</span></p>
+    <p>Remisy: <span class="draws" data-result="draws">0</span></p>
+  </div>
+  <div class="trapper">
+    <button class="trap">Karta pułapka (odpal tylko w ostateczności)</button>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
